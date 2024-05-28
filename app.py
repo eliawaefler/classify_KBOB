@@ -1,6 +1,6 @@
 # /classify_KBOB/app.py
 
-from myutils.version_check import check_version
+from MyUtils.version_check import check_version
 import streamlit as st
 
 def main():
