@@ -4,7 +4,8 @@ from myutils.version_check import check_version
 import streamlit as st
 
 def main():
-    st.fileuploader = 
+    files = st.fileuploader()
+    
 
 
 if __name__ == "__main__":
