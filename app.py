@@ -10,15 +10,15 @@ import os
 
 # Function to add document to Pinecone
 def add_document_to_pinecone(text):
-        doc = load_txt(text)
-        doc_text = " ".join(doc)
-         doc_embedding = embeddings.embed(doc_text)
-         index.upsert([(text, doc_embedding)])
+    doc = load_txt(text)
+    doc_text = " ".join(doc)
+    doc_embedding = embeddings.embed(doc_text)
+    index.upsert([(text, doc_embedding)])
 
 # Function to classify query
 def is_bim2fm_related(query):
-       keywords = ["BIM2FM", BIM2FM", "building information modeling", "facility management"]
-       return any(keyword.lower() in query.lower() for keyword in keywords)
+    keywords = ["BIM2FM", BIM2FM", "building information modeling", "facility management"]
+    return any(keyword.lower() in query.lower() for keyword in keywords)
 
 def main():
     # Initialize
