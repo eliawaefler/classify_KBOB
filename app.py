@@ -1,14 +1,12 @@
-# classify
-
 # /classify_KBOB/app.py
 
 from myutils.version_check import check_version
-
+import streamlit as st
 
 def main():
-    check_version()
-    # Your project code here
+    st.fileuploader = 
 
 
 if __name__ == "__main__":
+    check_version()
     main()
