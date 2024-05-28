@@ -17,7 +17,7 @@ def add_document_to_pinecone(text):
 
 # Function to classify query
 def is_bim2fm_related(query):
-    keywords = ["BIM2FM", BIM2FM", "building information modeling", "facility management"]
+    keywords = ["BIM2FM", "BIM2FM", "building information modeling", "facility management"]
     return any(keyword.lower() in query.lower() for keyword in keywords)
 
 def main():
