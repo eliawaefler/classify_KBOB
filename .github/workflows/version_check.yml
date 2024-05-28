@@ -1,0 +1,35 @@
+name: Version Check
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Runs every Sunday at midnight
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Check MyUtils version
+        run: |
+          python -c "
+          import requests
+          url = 'https://api.github.com/repos/yourusername/MyUtils/releases/latest'
+          response = requests.get(url)
+          latest_version = response.json().get('tag_name')
+          import myutils
+          current_version = myutils.__version__
+          if current_version != latest_version:
+              print(f'WARNING: You are using MyUtils version {current_version}, but version {latest_version} is available. Please update to the latest version.')
+          else:
+              print(f'You are using the latest version of MyUtils: {current_version}')
+          "
