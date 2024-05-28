@@ -1,2 +1,2 @@
 streamlit
-git+https://github.com/eliawaefler/MyUtils.git@main#egg=MyUtils
+git+https://github.com/eliawaefler/MyUtils
