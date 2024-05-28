@@ -1,2 +1,7 @@
 streamlit
 git+https://github.com/eliawaefler/MyUtils.git
+
+unstructured
+pinecone-client
+langchain
+openai
