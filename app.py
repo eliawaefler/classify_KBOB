@@ -24,7 +24,7 @@ def main():
     # Initialize
     pinecone.init(api_key="your-pinecone-api-key", environment="your-pinecone-environment")
     index_name = "your-index-name"
-        embeddings = OpenAIEmbeddings()
+    embeddings = OpenAIEmbeddings()
     if index_name not in pinecone.list_indexes():
         pinecone.create_index(index_name, dimension=1536)
     index = pinecone.Index(index_name)
