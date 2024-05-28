@@ -10,15 +10,10 @@ import os
 
 # Function to add document to Pinecone
 def add_document_to_pinecone(text):
-       # Load and preprocess document
         doc = load_txt(text)
         doc_text = " ".join(doc)
- 
-        # Generate embeddings
-        doc_embedding = embeddings.embed(doc_text)
- 
-        # Upsert to Pinecone
-        index.upsert([(text, doc_embedding)])
+         doc_embedding = embeddings.embed(doc_text)
+         index.upsert([(text, doc_embedding)])
 
 # Function to classify query
 def is_bim2fm_related(query):
@@ -50,16 +45,9 @@ def main():
     query = st.text_input("Enter your query:")
     if st.button("Retrieve and Generate Answer"):
         if is_bim2fm_related(query):
-            # Generate query embedding
             query_embedding = embeddings.embed(query)
-            
-            # Query Pinecone
             results = index.query(query_embedding, top_k=5)
-            
-            # Retrieve documents
             retrieved_texts = [result["metadata"]["text"] for result in results["matches"]]
-            
-            # Combine retrieved documents
             combined_text = " ".join(retrieved_texts)
             
             # Generate answer using OpenAI
@@ -80,5 +68,5 @@ def main():
 
 
 if __name__ == "__main__":
-    MyUtils.check_version()
+    #MyUtils.check_version()
     main()
