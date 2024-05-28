@@ -1,8 +1,7 @@
 # /classify_KBOB/app.py
 
 
-from MyUtils import version_check
-
+import MyUtils
 import streamlit as st
 
 def main():
@@ -11,5 +10,5 @@ def main():
 
 
 if __name__ == "__main__":
-    check_version()
+    MyUtils.check_version()
     main()
